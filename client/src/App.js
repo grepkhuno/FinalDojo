@@ -1,6 +1,5 @@
 import './App.css';
 import Nav from './components/Nav'
-import Contact from './components/Contact';
 import JokesAPI from './components/JokesAPI.jsx';
 import Summary from './components/Summary';
 import Certificates from './components/Certificates';
@@ -22,7 +21,6 @@ function App() {
           <Route path='/' element={<Summary />} />
           <Route path='/Summary' element={<Summary />} />
           <Route path='/Certificates' element={<CertificateList />} />
-          <Route path='/Contact' element={<Contact />} />
           <Route path='/JokesAPI' element={<JokesAPI />} />
           <Route path='/getCertByID/:id' element={<Certificates/>} />
           <Route path='/addCert' element={<AddCertificates/>} />

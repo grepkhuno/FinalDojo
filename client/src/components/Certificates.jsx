@@ -37,12 +37,14 @@ const Certificates = () => {
 
    const submitHandler = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:8000/api/addCert', {
+        axios.put(`http://localhost:8000/api/updateCert/${id}`, {
             certName,
             certProducer,
             certArt
         }).then((res) => {
+            navigate('/Certificates') 
             console.log(res)
+           
         }).catch((err) => {
             console.log(err)
         })
@@ -59,7 +61,7 @@ const Certificates = () => {
                 <input value={certProducer} className="form-control" type="text" onChange={(e) => setCertProducer(e.target.value)} />
                 <label className='form-label'>Art:</label>
                 <input value={certArt} className="form-control" type="text" onChange={(e) => setCertArt(e.target.value)} />
-               <button className='btn btn-info  mt-3'onClick={submitHandler}> Add Certificate</button>
+               <button className='btn btn-info  mt-3'onClick={submitHandler}> Update Certificate</button>
             </form>
             <button className='btn btn-warning m-2' onClick={cancelHandler}  >Cancel</button>
 

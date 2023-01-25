@@ -41,8 +41,6 @@ const CertificateList = () => {
                                     <td className='border boder-warning w-25'><div onChange={(e) => setCertProducer(e.target.value)} > {lista.certProducer}</div></td>
                                     <td className='border boder-warning w-25' > <img src={lista.certArt} className="art" alt="art" />
 
-                                    <Link className=' m-2' to={`/getCertByID/${lista._id}`}>details</Link>
-                                    |
                                     <Link className=' m-2' to={`/getCertByID/${lista._id}`}>edit</Link>
                                     </td>
                                 </tr>

@@ -7,6 +7,7 @@ const AddCertificates = () => {
     const [certProducer, setCertProducer] = useState('')
     const [certArt, setCertArt] = useState('')
     const { id } = useParams()
+    const [error, setErrors] = useState({})
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -37,6 +38,8 @@ const AddCertificates = () => {
             console.log(res)
         }).catch((err) => {
             console.log(err)
+            setErrors(err.response.data.errors)
+
         })
     }
 
@@ -46,6 +49,7 @@ const AddCertificates = () => {
             <form>
                 <label className='form-label'>Certification Name:</label>
                 <input  className="form-control" type="text" onChange={(e) => setCertName(e.target.value)} />
+                {error.certName && <p className='text-danger'>{error.certName.message} </p>}
                 <label className='form-label'>Issuer:</label>
                 <input className="form-control" type="text" onChange={(e) => setCertProducer(e.target.value)} />
                 <label className='form-label'>Art:</label>
